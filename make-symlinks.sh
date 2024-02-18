@@ -25,6 +25,11 @@ for dotfile in "${dotfiles[@]}"
 do
   if [ -L ${dotfile} ]; then
     echo "Not created: symlink ${dotfile} already exists!"
+    vared -p "Unlink symlink ${dotfile}?" -c REPLY
+    if [[ ${REPLY} = "yes" ]]; then
+      echo "Removing symlink ${dotfile}..."
+      unlink ${dotfile}
+    fi
     continue
   elif [ -f ${dotfile} ]; then
     dotfile_old="${dotfile}.`date +%m%d%y-%H-%M-%S`"
