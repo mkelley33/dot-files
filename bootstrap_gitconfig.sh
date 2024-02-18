@@ -22,3 +22,6 @@ git config --global color.ui auto
 
 git config --global advice.pushNonFastForward false
 git config --global advice.statusHints false
+
+git config --global --add alias.lastchange "log -p --follow -n 1"
+git config --global rebase.missingCommitsCheck warn
