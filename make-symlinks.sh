@@ -1,5 +1,11 @@
 #!/bin/zsh
 
+
+if [[ ! ${+DOTS} ]]; then
+  echo 'The DOTS variable must be set to the absolute path where your dotfiles repo is located.'
+  return
+fi
+
 # Don't allow this script to run in its own directory,
 # because we don't want it to alter the dotfiles that
 # were cloned.  Instead, this should be run from
